@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <% include ./partials/signup-layout.ejs%>
+</head>
+<body>
+    <header>
+        <!-- Navigation for Signup Page -->
+        <% include partials/header-signup.ejs%>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="row centered-form">
+            <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Registrasi
+                            <small> Its free</small>
+                        </h3>
+                    </div>
+                    <h3 class="col-md-8 txt-valid-signup">
+                        <%= message%>
+                    </h3>
+                    <div class="panel-body">
+                        <form role="form" action="/signup" method="post" name="signup" id="'signup">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control input-sm" type="text" name="firstname" id="firstname" placeholder="First Name">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control input-sm" type="text" name="lastname" id="lastname" placeholder="Last Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control input-sm validate-input" type="email" id="email" name="email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control input-sm" type="username" id="username" name="username" placeholder="Username">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control input-sm" type="password" id="password" name="password" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control input-sm" type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password">
+                                    </div>
+                                </div>
+                            </div>
+                            <input class="btn btn-info btn-block" type="submit" value="Register">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+</body>
+</html>

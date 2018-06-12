@@ -9,8 +9,16 @@ exports.menu = (req,res)=>{
             res.render('product',{'title':'Menu Product','profile':profile})
         }
         console.log(results)
-        res.render('product',{'title':'Menu Product','profile':profile,'product':results})
+        res.render('product',{
+            'title':'Menu Product',
+            'profile':profile,'product':results,
+            'productactive':'active'
+        })
     })
-        res.render('product',{'title':'Menu Product','profile':profile})
+        res.render('product',{
+            'title':'Menu Product',
+            'profile':profile,
+            'productactive':'active'
+        })
 
 }

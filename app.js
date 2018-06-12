@@ -8,6 +8,7 @@ let passport = require('passport');
 let session = require('express-session');
 let expressValidator = require('express-validator');
 let flash = require('connect-flash');
+let ejs = require('ejs');
 
 let app = express();
 
@@ -21,7 +22,9 @@ app.use(flash());
 app.use(expressValidator());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// app.set('view engine', 'jade');
+app.set('view engine','ejs');
+
 
 app.use(logger('dev'));
 
@@ -33,7 +36,16 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //START Controller
-
+app.get('/about',(req,res)=>{
+    let abouts = [
+        {name:'Dian Setiyadi',umur:22},
+        {name:'Dadang Sudarman',umur:26},
+        {name:'Rudi RUdiyanto',umur:20}
+    ]
+    res.render('about',{
+        abouts:abouts
+    })
+})
 //END Controller
 
 //Models

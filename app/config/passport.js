@@ -34,10 +34,10 @@ module.exports = (passport,user)=>{
         let generateCrypt = (password)=>{
             return bCrypt.hashSync(password,bCrypt.genSaltSync(4),null);
         }
-       
-        User.findOne({where: {email:email}}).then((user)=>{
+
+        User.findOne({ where:{ [Op.or]: [{ email: email } , { username: email }]}}).then((user)=>{
             if(user){
-                return done(null, false, {message: 'That email is Already Taken'})
+                return done(null, false, req.flash('message','Email is Already Taken'))
             }
 
             else {
@@ -50,7 +50,7 @@ module.exports = (passport,user)=>{
                     lastname: req.body.lastname,
                     username: req.body.username,
                 }
-        let confirmPassword = req.body.confirmPassword;
+        let confirmPassword = req.body.confirmpassword;
 
          if(purePassword != confirmPassword){
              console.log(data.password, confirmPassword)

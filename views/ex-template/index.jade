@@ -4,7 +4,7 @@ extends layout
 block content
 
   nav#siteNav.navbar-default.navbar-fixed-top(role="navigation")
-    .container
+    .container-fluid
       .navbar-header
         button.navbar-toggle(type="button", data-toggle="collapse", data-target="#navbar")
           span.sr-only Toggle navigation
@@ -40,9 +40,27 @@ block content
   header
     .header-content
       .header-content-inner
-        h1= title
-        p DUMMY UNTUK INDEX
-        a.btn.btn-primary.bnt-lg(href="#") Coba Sekarang
+        #myCarousel.carousel.slide
+          ol.carousel-indicators
+            li.active(data-target="#myCarousel" data-slide-to="0")
+            li(data-target="  #myCarousel" data-slide-to="1")
+            li(data-target="#myCarousel" data-slide-to="2")
+          .carousel-inner
+             .item.active
+                img(src="https://www.jnto.or.id/ThemeSite/img/aktivitas/detail-act-banner.png" style="width:50%")
+             .item
+                img(src="https://www.diykamera.com/wp-content/uploads/2017/07/cara-memotret-pemandangan.jpg" style="width:50%")
+             .item
+                img(src="https://i2.wp.com/gambar-pemandangan.com/wp-content/uploads/2017/06/Gambar-Pemandangan-Alam-Pantai-1323.jpg?fit=1366%2C768&ssl=1" style="width:50%")
+          a.left.carousel-control(href="#myCarousel" data-slide="prev")
+            span.glyphicon.glyphicon-chevron-left
+              span.sr-only Previous
+          a.right.carousel-control(href="#myCarousel" data-slide="next")
+            span.glyphicon.glyphicon-chevron-right
+              span.sr-only Next
+        //h1= title
+        //p DUMMY UNTUK INDEX
+        //a.btn.btn-primary.bnt-lg(href="#") Coba Sekarang
 
   //- Section
   section.intro
