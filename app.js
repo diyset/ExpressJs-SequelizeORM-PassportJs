@@ -42,10 +42,14 @@ app.get('/about',(req,res)=>{
         {name:'Dadang Sudarman',umur:26},
         {name:'Rudi RUdiyanto',umur:20}
     ]
-    res.render('about',{
+    res.render('/about',{
         abouts:abouts
     })
 })
+
+// app.get('/product',(req,res)=>{
+//     res.render('productMenu',{title:'TITLEEE'})
+// })
 //END Controller
 
 //Models

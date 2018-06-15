@@ -18,12 +18,17 @@ exports.signin = function(req,res){
 
 exports.menu = function(req,res){
   let profile = req.user;
+  let coverCarousel = [
+      {namawisata:'Wisata Edukasi',url:'/wisata_edukasi/AnakKolongTangga/Anak_kolong_tangga_1.jpg',href:1},
+      {namawisata:'Wisata Sejarah',url:'/wisata_sejarah/Museum_kereta/museum_kencana_keraton.jpg',href:2},
+      {namawisata:'Wisata wisata_kuliner',url:'/wisata_kuliner/TheHouseRaminten/the_house_raminten1.jpg',href:3}
+  ];
   console.log('Menu : ',profile)
   res.render('index',{
     'profile': profile,
       'title':'Menu Page',
       'product':'/product',
-      'menuactive':'active'
+      coverCarousel:coverCarousel
   });
 }
 

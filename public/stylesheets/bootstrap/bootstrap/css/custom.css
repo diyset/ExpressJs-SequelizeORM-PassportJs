@@ -29,7 +29,7 @@ p {
 header {
   position: relative;
   width: 100%;
-  background-image: url('../images/header.jpg');
+  /*background-image: url('../images/header.jpg');*/
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
