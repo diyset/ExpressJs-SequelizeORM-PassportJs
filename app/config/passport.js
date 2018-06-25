@@ -16,8 +16,8 @@ module.exports = (passport,user)=>{
         User.findById(id).then((user)=>{
             if(user){
                 done(null, user.get())
-                done(user.errors,null)
             } else {
+                done(user.errors,null)
             }
         })
     })
@@ -105,13 +105,8 @@ passport.use('local-signin', new LocalStrategy(
             }
             user.update(data).then((newUser,created)=>{
                 console.log('newUser',newUser)
-                if(!newUser){
-                    return done(null,false)
-                } else {
-                    return done(null, newUser)
-                }
             })
-            let userinfo = user.get();
+            var userinfo = user.get();
             return done(null,userinfo)
 
         }).catch((err)=>{

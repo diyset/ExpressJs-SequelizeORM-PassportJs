@@ -8,6 +8,7 @@ let passport = require('passport');
 let session = require('express-session');
 let expressValidator = require('express-validator');
 let flash = require('connect-flash');
+let cookieParser = require('cookie-parser');
 let ejs = require('ejs');
 
 let app = express();
@@ -15,14 +16,15 @@ let app = express();
 // For Body Parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()); 
-
+app.use(cookieParser());
 //For Connect Flash
 app.use(flash());
 //For Express Validator
 app.use(expressValidator());
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
 app.set('view engine','ejs');
 
 
@@ -58,7 +60,6 @@ let models = require('./app/models')
 
 //Routes
 let authRoute = require('./app/routes/auth')(app,passport);
-let memberRoute = require('./app/routes/master_member')(app);
 let detailProfileRoute = require('./app/routes/detailprofile')(app);
 let productRoute = require('./app/routes/product')(app);
 

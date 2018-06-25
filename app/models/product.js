@@ -5,9 +5,13 @@ module.exports = function(sequelize, Sequelize){
         nama_wisata: {type: Sequelize.STRING(50),notEmpty:true},
         lokasi: {type: Sequelize.STRING(50),notEmpty:true},
         deskripsi: {type: Sequelize.TEXT},
-        url_images: {type: Sequelize.STRING(100),notEmpty:true},
-        kode_kategori: {type: Sequelize.INTEGER,notEmpty:true},
-        jharga: {type: Sequelize.DOUBLE(10,2)}
+        cover_images: {type: Sequelize.STRING(100),notEmpty:true},
+        url_images1: {type: Sequelize.STRING(100),notEmpty:true},
+        url_images2: {type: Sequelize.STRING(100),notEmpty:true},
+        url_images3: {type: Sequelize.STRING(100),notEmpty:true},
+        url_images4: {type: Sequelize.STRING(100),notEmpty:true},
+        nama_kategori: {type: Sequelize.STRING(50),notEmpty:true},
+        harga: {type: Sequelize.DOUBLE(10,2)}
     })
 
     return Product;

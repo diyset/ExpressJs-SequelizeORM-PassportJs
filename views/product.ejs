@@ -7,22 +7,18 @@
 
     <% include ./partials/header-product.ejs%>
 
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+
         <div class="container">
                 <div class="row">
+                        <%listProduct.forEach((products)=>{%>
                         <div class="col-sm-4">
                                 <div class="panel panel-primary">
-                                        <div class="panel-heading">Nama Kategori</div>
-                                        <div class="panel-body"><img src="/images/product/wisata_edukasi/AnakKolongTangga/Anak_kolong_tangga_1.jpg" class="img-responsive" style="width: 100%" alt="Image"></div>
-                                        <div class="panel-footer">Nama Pariwisata</div>
+                                        <div class="panel-heading"><%= products.nama_kategori%></div>
+                                        <div class="panel-body"><img src="/images/product/<%= products.cover_images%>" class="img-responsive" style="width: 100%" alt="Image"></div>
+                                        <div class="panel-footer"><a href="/product/detailproduct/<%= products.id%>"><%= products.nama_wisata%></a></div>
                                 </div>
                         </div>
+                        <%})%>
                         <div class="col-sm-4">
                                 <div class="panel panel-primary">
                                         <div class="panel-heading">Nama Kategori</div>

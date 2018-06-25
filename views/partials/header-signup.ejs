@@ -1,4 +1,4 @@
-<nav class="navbar-default navbar-fixed-top" id="siteNav" role="navigation">
+<nav class="navbar navbar-inverse" id="siteNav" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar">
@@ -31,7 +31,7 @@
                 </li>
                 <%}else{%>
                 <li>
-                    Welcome ,<a href="/detailprofile"><%=profile.firstname%></a>
+                    <a href="/detailprofile">Welcome, <%=profile.firstname%></a>
                 </li>
                 <%}%>
                 <% if(profile==null){%>
@@ -42,8 +42,11 @@
                 <li>
                     <a href="#">Contact</a>
                 </li>
+                <% if(profile!= null) {%>
                 <li>
+                    <a href="/logout">Logout</a>
                 </li>
+                <<%}%>
             </ul>
         </div>
     </div>
