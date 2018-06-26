@@ -4,32 +4,32 @@ let Sequelize = require('sequelize')
 let Op = Sequelize.Op;
 
 exports.productAll = (req,res)=>{
-    let coursels = [
-        {namakategori:'Wisata Sejarah',url:'/wisata_sejarah/Museum_kereta/museum_kencana_keraton.jpg',href:'WisataSejarah'},
-        {namakategori:'Wisata Edukasi',url:'/wisata_edukasi/AnakKolongTangga/Anak_kolong_tangga_1.jpg',href:'WisataEdukasi'},
-        {namakategori:'Wisata Edukasi',url:'/wisata_kuliner/TheHouseRaminten/the_house_raminten1.jpg',href:'WisataKuliner'}
-    ]
+    models.sequelize.query("SELECT * FROM tbl_kategoris",{type: Sequelize.QueryTypes.SELECT}).then((results)=>{
     let user = req.user;
-    res.render('productMenu',{title:'Product Page',profile:user,coursels:coursels})
+        console.log(results)
+    res.render('productMenu',{
+        title:'Product Page',
+        profile:user,
+        kategori:results
+        })
+    })
 }
 
-exports.findOneProduct=(req,res,next)=>{
+exports.findOneProduct=(req,res)=>{
     let profile = req.user;
-    let namaKategori = req.params.kategori;
-    let hasil = [];
-    models.tbl_product.findAll({where:{nama_kategori:namaKategori}}).then((results)=>{
-        // if(err){
-        //     res.render('error')
-        // }
-        // if(err){
-        //     res.render('error',{message:'ERROR PRODUCT'})
-        // }
+    let idKategori = req.params.kategori;
+    models.sequelize.query(
+        "SELECT *, tbl_kategoris.nama_kategori FROM tbl_products JOIN tbl_kategoris  ON tbl_products.id_kategori = tbl_kategoris.id " +
+        "where tbl_kategoris.id = ? ",{
+            replacements: [idKategori],
+            model: models.tbl_product,
+            include: [{
+                model: models.tbl_kategori
+            }]
+        }
+        ).then((results)=>{
         console.log('Hasil Dari DB',results)
-        console.log(profile)
-        hasil = results;
-        // res.send({data:results})
-        console.log('Hasil',hasil)
-        res.render('product',{profile:profile,title:'Product hasil',listProduct:hasil});
+        res.render('product',{profile:profile,title:'Product hasil',listProduct:results});
     }).catch((err)=>{
         console.log('Error',err)
         res.render('Error',{error:err,message:'Error Catching'})
@@ -43,7 +43,6 @@ exports.findOneDetailProduct=(req, res, next)=>{
         res.render('error',{message:'Error pada Params'})
     }
     models.tbl_product.findOne({where:{id:idProduct}}).then((results)=>{
-
 
         if(results==null){
             req.next();

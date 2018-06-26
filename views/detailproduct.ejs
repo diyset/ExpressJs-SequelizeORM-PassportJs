@@ -1,16 +1,54 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
-        <% include ./partials/header-layout.ejs%>
+        <% include ./partials/header-detailproduct.ejs%>
 </head>
 <body>
     <% include ./partials/header-product.ejs%>
 
-       <p>Test Detail Product</p>
-    <P><%= product.nama_wisata%></P>
-    <P><%= product.lokasi%></P>
-    <P><%= product.deskripsi%></P>
-        <p></p>
+    <div class="container">
+        <h1 class="my-4">
+            <%= product.nama_wisata%>
+            <form method="post">
+                <button class="btn-info" type="submit">Pesan</button>
+            </form>
+        </h1>
+
+        <div class="row">
+            <div class="col-md-8">
+                <img style="width: 750px; height: 500px" class="img-fluid" src="/images/product/<%= product.cover_images%>">
+            </div>
+
+            <div class="col-md-4 list-group-item-info">
+                <h2 class="my-3"><%= product.nama_wisata%></h2>
+                <p align="justify"><%= product.deskripsi%></p>
+            </div>
+            <div class="col-md-4 bg-danger">
+                <h2 class="my-3">
+                    Lokasi : <%= product.lokasi%>
+                </h2>
+                <h2 class="my-3"> Harga : Rp.<%= product.harga%></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <a href="">
+                    <img class="img-fluid" style="width: 300px;height: 200px" src="/images/product/<%= product.url_images2%>">
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <a href="">
+                    <img class="img-fluid" style="width: 300px;height: 200px" src="/images/product/<%= product.url_images3%>">
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <a href="">
+                    <img  style="width: 300px;height: 200px" class="img-fluid" src="/images/product/<%= product.url_images1%>">
+                </a>
+            </div>
+        </div>
+        <h1 class="my-4">Lokasi Di Map</h1>
+    </div>
 <footer class="footer-distributed">
         <% include ./partials/footer.ejs%>
 </footer>

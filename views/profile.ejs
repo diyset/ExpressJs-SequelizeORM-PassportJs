@@ -1,0 +1,21 @@
+<!-- views/pages/index.ejs -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <% include ./partials/header-layout.ejs %>
+</head>
+<body>
+        <!--Navigation -->
+        <% include partials/header-profile.ejs %>
+        <!--END Navigation-->
+<div class="container">
+       <p><%= profile.firstname%></p>
+       <p><%= profile.lastname%></p>
+</div>
+
+<footer class="footer-distributed">
+    <% include ./partials/footer.ejs%>
+</footer>
+</body>
+<!--<script src='/stylesheets/bootstrap/bootstrap/js/custom.js'></script>-->
+</html>
