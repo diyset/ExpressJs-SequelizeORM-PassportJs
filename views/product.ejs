@@ -13,8 +13,8 @@
                         <div class="col-sm-4">
                                 <div class="panel panel-primary">
                                         <div class="panel-heading"><%= products.nama_kategori%></div>
-                                        <div class="panel-body"><img src="/images/product/<%= products.cover_images%>" class="img-responsive" style="width: 100%" alt="Image"></div>
-                                        <div class="panel-footer"><a href="/product/detailproduct/<%= products.id%>"><%= products.nama_wisata%></a></div>
+                                        <div class="panel-body"><a href="/product/detailproduct/<%= products.id_product%>"><img style="width: 500px; height: 250px" src="/images/product/<%= products.cover_images%>" class="img-responsive" style="width: 100%" alt="Image"></a></div>
+                                        <div class="panel-footer"><a href="/product/detailproduct/<%= products.id_product%>"><%= products.nama_wisata%></a></div>
                                 </div>
                         </div>
                         <%})%>

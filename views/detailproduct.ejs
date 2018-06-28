@@ -2,16 +2,18 @@
 <html lang="en">
 <head>
         <% include ./partials/header-detailproduct.ejs%>
+    <style>
+
+    </style>
 </head>
 <body>
     <% include ./partials/header-product.ejs%>
 
     <div class="container">
+
         <h1 class="my-4">
             <%= product.nama_wisata%>
-            <form method="post">
-                <button class="btn-info" type="submit">Pesan</button>
-            </form>
+            <a class="btn-info" href="/booking/<%= product.id_product%>">Pesan</a>
         </h1>
 
         <div class="row">
@@ -19,31 +21,36 @@
                 <img style="width: 750px; height: 500px" class="img-fluid" src="/images/product/<%= product.cover_images%>">
             </div>
 
-            <div class="col-md-4 list-group-item-info">
+            <div class="col-md-4">
+                <div class="col-md-10 bg-info">
                 <h2 class="my-3"><%= product.nama_wisata%></h2>
-                <p align="justify"><%= product.deskripsi%></p>
+                <!--<p align="justify">Taman Pintar Yogyakarta merupakan salah satu wahana bermain sekaligus belajar untuk anak-anak yang disediakan oleh pemerintah kota Yogyakarta untuk menyediakan sarana pembelajaran sains bagi siswa yang mendukung kurikulum pendidikan-->
+                    <!--serta memotivasi anak dan generasi muda untuk mencintai sains</p>-->
+                <h3 class="my-3"> Harga : <%= formatCurrency%></h3>
+                <h3 class="my-3">Lokasi : <%= product.lokasi%></h3>
+
+                </div>
             </div>
-            <div class="col-md-4 bg-danger">
-                <h2 class="my-3">
-                    Lokasi : <%= product.lokasi%>
-                </h2>
-                <h2 class="my-3"> Harga : Rp.<%= product.harga%></h2>
+            <div class="col-md-8 bg-danger">
             </div>
         </div>
+        <h1 class="my-4">Deskripsi</h1>
+        <p align="justify"><%= product.deskripsi%></p>
+        <h1>Gallery <%= product.nama_wisata%></h1>
         <div class="row">
-            <div class="col-md-3 col-sm-6 mb-4">
+            <div class="col-sm-3">
                 <a href="">
-                    <img class="img-fluid" style="width: 300px;height: 200px" src="/images/product/<%= product.url_images2%>">
+                    <img class="img-responsive" style="width: 300px;height: 200px" src="/images/product/<%= product.url_images2%>">
                 </a>
             </div>
-            <div class="col-md-3 col-sm-6 mb-4">
+            <div class="col-sm-3">
                 <a href="">
-                    <img class="img-fluid" style="width: 300px;height: 200px" src="/images/product/<%= product.url_images3%>">
+                    <img class="img-responsive" style="width: 300px;height: 200px" src="/images/product/<%= product.url_images3%>">
                 </a>
             </div>
-            <div class="col-md-3 col-sm-6 mb-4">
+            <div class="col-sm-3">
                 <a href="">
-                    <img  style="width: 300px;height: 200px" class="img-fluid" src="/images/product/<%= product.url_images1%>">
+                    <img  style="width: 300px;height: 200px" class="img-responsive" src="/images/product/<%= product.url_images1%>">
                 </a>
             </div>
         </div>

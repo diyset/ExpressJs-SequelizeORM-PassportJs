@@ -1,10 +1,16 @@
 <!-- views/pages/index.ejs -->
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
     <% include ./partials/header-layout.ejs %>
+    <style>
+        #map {
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
+
         <!--Navigation -->
         <% include partials/header-index.ejs %>
         <!--END Navigation-->
@@ -55,14 +61,28 @@
                 </a>
             </div>
         </div>
-<div class="container">
+<div class="container text-center">
     <h1>About Us</h1>
+    <div class="row">
+        <div class="col-sm-4">
+            <div id="map"></div>
+            <h3>Lokasi Kami</h3>
+        </div>
+    </div>
 </div>
-
-
 <footer class="footer-distributed">
     <% include ./partials/footer.ejs%>
 </footer>
+        <script>
+            var map;
+            function initPeta() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: -34.397, lng: 150.644},
+                    zoom: 8
+                });
+            }
+        </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9GIy2pYELiXgaZlR9pBvZlLbD2CdlDOA&callback=initPeta" async defer></script>
 </body>
 <!--<script src='/stylesheets/bootstrap/bootstrap/js/custom.js'></script>-->
 </html>

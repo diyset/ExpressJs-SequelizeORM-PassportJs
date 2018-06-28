@@ -49,6 +49,7 @@ module.exports = (passport,user)=>{
                     firstname: req.body.firstname,
                     lastname: req.body.lastname,
                     username: req.body.username,
+                    nohp: req.body.nohp
                 }
         let confirmPassword = req.body.confirmpassword;
 

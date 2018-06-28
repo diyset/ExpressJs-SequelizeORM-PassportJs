@@ -8,12 +8,78 @@
         <!--Navigation -->
         <% include partials/header-profile.ejs %>
         <!--END Navigation-->
-<div class="container">
-       <p><%= profile.firstname%></p>
-       <p><%= profile.lastname%></p>
-</div>
+        <div class="container">
+            <div class="row">
 
-<footer class="footer-distributed">
+
+                <div class="col-md-7 ">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">  <h4 >Profile Pengguna</h4></div>
+                        <div class="panel-body">
+                        <br>
+                            <div class="box box-info">
+
+                                <div class="box-body">
+                                    <div class="col-sm-10">
+                                        <!-- /input-group -->
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <h4 style="color:#00b1b1;">Hallo <%= profile.firstname%> <%= profile.lastname%> </h4></span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <hr style="margin:5px 0 5px 0;">
+
+
+                                    <div class="col-sm-5 col-xs-6 tital " >Nama Depan:</div><div class="col-sm-7 col-xs-6 "><%= profile.firstname%></div>
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+
+                                    <div class="col-sm-5 col-xs-6 tital " >Nama Belakang:</div><div class="col-sm-7"> <%= profile.lastname%></div>
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+
+                                    <div class="col-sm-5 col-xs-6 tital " >Tanggal Gabung:</div><div class="col-sm-7"><%= tanggalGabung%></div>
+
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+
+                                    <div class="col-sm-5 col-xs-6 tital " >No Handphone:</div><div class="col-sm-7">+62<%= profile.nohp%></div>
+
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+
+                                    <div class="col-sm-5 col-xs-6 tital " >Email:</div><div class="col-sm-7"><%= profile.email%></div>
+
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+
+                                    <div class="col-sm-5 col-xs-6 tital " >Username:</div><div class="col-sm-7"><%= profile.username%></div>
+
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+
+                                    <div class="col-sm-5 col-xs-8 tital " >Status:</div><div class="col-sm-7"><%= profile.status%></div>
+
+
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+
+                                    <div class="col-sm-5 col-xs-8 tital " >Last Login:</div><div class="col-sm-7"><%= profile.last_login%></div>
+
+                                    <!-- /.box-body -->
+                                </div>
+                                <!-- /.box -->
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                <footer class="footer-distributed">
     <% include ./partials/footer.ejs%>
 </footer>
 </body>

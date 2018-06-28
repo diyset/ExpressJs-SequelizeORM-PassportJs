@@ -1,0 +1,84 @@
+<!-- views/pages/index.ejs -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <% include ./partials/header-layout.ejs %>
+</head>
+<body>
+
+<div style="margin:5% 40% 0% 33%;float:left; width:500px; box-shadow:0 0 3px #aaa; height:auto;color:#666;">
+    <div style="width:100%; padding:10px; float:left; background:#1ca8dd; color:#fff; font-size:30px; text-align:center;">
+        Invoice#<span id="kodeBooking"><%= generateKodeBooking%></span>
+    </div>
+    <div style="width:100%; padding:0px 0px;border-bottom:1px solid rgba(0,0,0,0.2);float:left;">
+        <div style="width:30%; float:left;padding:10px;">
+
+            <span style="font-size:14px;float:left; width:100%;">
+                <b>Nama  :</b>
+            </span>
+            <%= profile.firstname%> <%= profile.lastname%>
+
+            <span style="font-size:14px;float:left; width:100%;">
+                <b>No Handphone :</b>  +62<%= profile.nohp%>
+            </span>
+            <!--<span style="font-size:14px;float:left;width:100%;">-->
+                <!--21, jessika street ,-->
+				<!--shennoanagarnagar-->
+            <!--</span>-->
+            <span style="font-size:14px;float:left;width:100%;">
+			<b>Email :</b> <%= profile.email%>
+			</span>
+        </div>
+
+        <div style="width:40%; float:right;padding:">
+            <span style="font-size:14px;float:right;  padding:10px; text-align:right;">
+                <b>Date : </b><%= tanggalOrder%>
+            </span>
+            <span style="font-size:14px;float:right;  padding:10px; text-align:right;">
+               <b>Kode Booking# : </b><%= generateKodeBooking%>
+            </span>
+        </div>
+    </div>
+
+
+
+
+
+    <div style="width:100%; padding:0px; float:left;">
+
+        <div style="width:100%;float:left;background:#efefef;">
+            <span style="float:left; text-align:left;padding:10px;width:50%;color:#888;font-weight:600;">
+            Decription
+           </span>
+            <span style="font-weight:600;float:left;padding:10px ;width:40%;color:#888;text-align:right;">
+         Amount
+        </span>
+        </div>
+
+        <div style="width:100%;float:left;">
+            <span style="float:left; text-align:left;padding:10px;width:50%;color:#888;">
+            <%= product.nama_wisata%>
+
+
+            <span style="font-size:10px; float:left; width:100%;">
+                (<%= product.lokasi%>)
+            </span>
+        </span>
+            <span style="font-weight:normal;float:left;padding:10px ;width:40%;color:#888;text-align:right;">
+            <%= product.harga%> IDR
+        </span>
+        </div>
+
+
+        <div style="width:100%;float:left; background:#fff;">
+
+         <span style="font-weight:600;float:right;padding:10px 0px;width:40%;color:#666;text-align:center;">
+           Total : <%= product.harga%> IDR
+        </span>
+        </div>
+
+    </div>
+</div>
+</body>
+<!--<script src='/stylesheets/bootstrap/bootstrap/js/custom.js'></script>-->
+</html>

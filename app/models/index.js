@@ -27,4 +27,15 @@ fs
     db.sequelize = sequelize
     db.Sequelize = Sequelize
 
+db.product = require('../models/product')(sequelize,Sequelize)
+db.kategori = require('../models/kategori')(sequelize,Sequelize)
+db.user = require('../models/user')(sequelize,Sequelize)
+db.booking = require('../models/booking')(sequelize,Sequelize)
+
+db.booking.belongsTo(db.user)
+// db.booking.hasMany(db.user)
+db.booking.belongsTo(db.product)
+db.product.belongsTo(db.kategori)
+db.kategori.hasMany(db.product)
+
     module.exports = db;

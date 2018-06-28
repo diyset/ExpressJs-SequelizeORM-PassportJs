@@ -1,9 +1,5 @@
 html,
-body {
-    width: 100%;
-    height: 100%;
-    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
-}
+
 
 a {
     color: yellowgreen;
@@ -236,13 +232,13 @@ header .header-content .header-content-inner p {
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
 }
-  
+
 .card {
     background-color: #FFFFFF;
     /* just in case there no content*/
     padding: 1px 25px 30px;
     margin: 0 auto 25px;
-    margin-top: 15%x;
+    margin-top: 15px;
     /* shadows and rounded borders */
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
@@ -259,31 +255,6 @@ header .header-content .header-content-inner p {
 	background-position: 50% 50%;
 	}
 
-.page-footer {
-	text-align: center;
-	}
-
-.page-footer .contact {
-	padding: 100px 0;
-	background-color: yellowgreen;
-	color: #fff;
-	}
-
-.page-footer .contact p {
-	font-size: 22px;
-	font-weight: 300;
-	}
-	
-.content-3 .glyphicon,	
-.page-footer .contact .glyphicon {
-	font-size: 32px;
-	font-weight: 700;
-	}
-		
-.page-footer .small-print {
-	padding: 50px 0 40px;
-	font-weight: 300;
-	}
 
 .text-light {
     color: rgba(255,255,255,.7);

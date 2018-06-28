@@ -8,7 +8,7 @@ app.get('/signup', authController.signup);
 
 app.get('/signin', authController.signin);
 
-
+app.get('/product/detailproduct/:idproduct',isLoggedIn, productController.findOneDetailProduct);
 app.post('/signup', passport.authenticate('local-signup',  { successRedirect: '/index',
                                                     failureRedirect: '/signupv2'}
                                                     ));

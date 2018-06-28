@@ -2,20 +2,21 @@
 <html lang="en">
 <head>
     <% include ./partials/header-layout.ejs%>
+    <link rel='stylesheet' href='/stylesheets/bootstrap/bootstrap/css/custom.css'>
 </head>
 <body>
     <!-- Navigation -->
     <% include ./partials/header-product.ejs%>
     <div class="container">
-          <h1 class="my-4">List Kategori</h1>
+          <h1 style="color:#1d2124" class="jumbotron text-center">List Kategori</h1>
     <div class="row">
         <% kategori.forEach((kategoris)=>{%>
         <div class="col-lg-4 col-sm-6 portfolio-item" >
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top" src=""></a>
+            <div class="card">
+                <a href="/product/<%= kategoris.id_kategori%>"><img style="width: 70%" class="img-circle card-img-top center-block" src="/images/kategori/<%= kategoris.url_images%>"></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a href="/product/<%= kategoris.id%>"><%= kategoris.nama_kategori%></a>
+                        <a href="/product/<%= kategoris.id_kategori%>"><%= kategoris.nama_kategori%></a>
                     </h4>
                     <p><%= kategoris.deskripsi%></p>
                 </div>
@@ -23,7 +24,7 @@
         </div>
         <%})%>
     </div>
-
+    </div>
 <footer class="footer-distributed">
     <% include ./partials/footer.ejs%>
 </footer>

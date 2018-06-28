@@ -5,7 +5,7 @@ module.exports = function(sequelize, Sequelize){
         firstname: {type: Sequelize.STRING(50),notEmpty:true},
         lastname: {type: Sequelize.STRING(50),notEmpty:true},
         username: {type: Sequelize.TEXT},
-        about: {type: Sequelize.TEXT},
+        nohp: {type: Sequelize.INTEGER(14),notNull:true},
         email: {type: Sequelize.STRING, validate:{isEmail: true}},
         password: {type: Sequelize.STRING, allowNull: false},
         last_login: {type: Sequelize.DATE},
