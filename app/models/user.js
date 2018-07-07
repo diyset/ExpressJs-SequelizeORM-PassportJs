@@ -8,6 +8,7 @@ module.exports = function(sequelize, Sequelize){
         nohp: {type: Sequelize.INTEGER(14),notNull:true},
         email: {type: Sequelize.STRING, validate:{isEmail: true}},
         password: {type: Sequelize.STRING, allowNull: false},
+        img_profile: {type: Sequelize.STRING, allowNull: true},
         last_login: {type: Sequelize.DATE},
         status: {type: Sequelize.ENUM('active','inactive'),defaultValue: 'active'}
 

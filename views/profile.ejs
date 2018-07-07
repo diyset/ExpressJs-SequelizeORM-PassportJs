@@ -25,11 +25,14 @@
                                         <!-- /input-group -->
                                     </div>
                                     <div class="col-sm-6">
+                                    <img src="/images/profile/<%= profile.img_profile%>" alt="My Profile" class="img-circle center-block" style="width: 200px;height: 200px">
                                         <h4 style="color:#00b1b1;">Hallo <%= profile.firstname%> <%= profile.lastname%> </h4></span>
                                     </div>
+
                                     <div class="clearfix"></div>
                                     <hr style="margin:5px 0 5px 0;">
 
+                                    <form enctype="multipart/form-data" action="/updatefotoprofile" method="post">
 
                                     <div class="col-sm-5 col-xs-6 tital " >Nama Depan:</div><div class="col-sm-7 col-xs-6 "><%= profile.firstname%></div>
                                     <div class="clearfix"></div>
@@ -65,20 +68,31 @@
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>
 
-                                    <div class="col-sm-5 col-xs-8 tital " >Last Login:</div><div class="col-sm-7"><%= profile.last_login%></div>
+                                    <div class="col-sm-5 col-xs-8 tital " >Last Login:</div><div class="col-sm-7"><%= moment(profile.last_login).format('DD-MM-YYYY HH:MM:SS')%></div>
 
-                                    <!-- /.box-body -->
+                                    <div class="clearfix"></div>
+                                    <div class="bot-border"></div>
+
+                                    <div class="col-sm-5 col-xs-8 tital">Ganti Foto Profile</div>
+
+                                        <div class="col-sm-7"><input type="file" name="photoProfile" class="-upload"></div>
+                                        <!-- /.box-body -->
                                 </div>
                                 <!-- /.box -->
 
                             </div>
 
-
                         </div>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="submit" class="btn btn-danger" value="Simpan"/>
+                        </form>
                     </div>
                 </div>
             </div>
+
         </div>
+
                 <footer class="footer-distributed">
     <% include ./partials/footer.ejs%>
 </footer>

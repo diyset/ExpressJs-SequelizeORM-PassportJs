@@ -1,6 +1,7 @@
 let createError = require('http-errors');
 let express = require('express');
 let path = require('path');
+let fileupload = require('express-fileupload');
 let logger = require('morgan');
 let bodyParser = require('body-parser');
 let env = require('dotenv').load();
@@ -19,6 +20,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 //For Connect Flash
 app.use(flash());
+app.use(fileupload())
 //For Express Validator
 app.use(expressValidator());
 
@@ -62,6 +64,8 @@ let models = require('./app/models')
 let authRoute = require('./app/routes/auth')(app,passport);
 let detailProfileRoute = require('./app/routes/detailprofile')(app);
 let productRoute = require('./app/routes/product')(app);
+let apiRoute = require('./app/routes/ApiRoutes')(app);
+
 
 require('./app/config/passport.js')(passport, models.user);
 

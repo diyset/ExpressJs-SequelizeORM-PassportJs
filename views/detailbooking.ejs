@@ -30,7 +30,7 @@
 			</span>
         </div>
 
-        <div style="width:40%; float:right;padding:">
+        <div style="width:40%; float:right;">
             <span style="font-size:14px;float:right;  padding:10px; text-align:right;">
                 <b>Date : </b><%= tanggalOrder%>
             </span>
@@ -65,20 +65,34 @@
             </span>
         </span>
             <span style="font-weight:normal;float:left;padding:10px ;width:40%;color:#888;text-align:right;">
-            <%= product.harga%> IDR
+            <%= formatCurrency%>
         </span>
         </div>
-
+    </div>
 
         <div style="width:100%;float:left; background:#fff;">
 
          <span style="font-weight:600;float:right;padding:10px 0px;width:40%;color:#666;text-align:center;">
-           Total : <%= product.harga%> IDR
+           Total : <%= formatCurrency%>
         </span>
-        </div>
 
+        <div class="container-fluid bg-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-center">Anda yakin ingin memesan ?</h3>
+                </div>
+                <div class="col-lg-12">
+            <a href="/index"><button class="btn-danger btn-lg pull-left">Cancel</button></a>
+        <form action="/savebooking" method="post" style="margin-bottom: 10px;">
+            <input class="btn-success btn-lg pull-right" type="submit" value="Pesan" style="margin-left: 5px;">
+        </form>
+                </div>
+            </div>
+        </div>
     </div>
+
 </div>
+
 </body>
 <!--<script src='/stylesheets/bootstrap/bootstrap/js/custom.js'></script>-->
 </html>

@@ -1,5 +1,8 @@
 var exports = module.exports = {}
 var moment = require('moment')
+var models = require('../models/')
+var Sequelize = require('sequelize')
+
 exports.detail = (req,res)=>{
     let profile = req.user;
     console.log(profile.createdAt);
@@ -9,8 +12,45 @@ exports.detail = (req,res)=>{
     res.render('profile',{
         'title':'Detail Page',
         profile:profile,
-        tanggalGabung:tanggalGabung
+        tanggalGabung:tanggalGabung,
+        moment:moment
     })
+}
+
+exports.updateFotoProfile = (req,res)=>{
+    profile = req.user;
+    var path = 'public/images/profile/'+req.files.photoProfile.name
+    req.files.photoProfile.mv(path, (err)=>{
+        if(err) {
+            return res.status(500).send(err);
+        }
+    let data = {
+        img_profile: req.files.photoProfile.name
+    }
+    console.log(profile.id)
+        models.user.update({img_profile:req.files.photoProfile.name},{returning:true,where: {id:profile.id}}).then((results)=>{
+
+        res.redirect('/detailprofile')
+
+    })
+    })
+}
+
+exports.updateprofile = (req,res)=>{
+    let data = {
+        img_profile : req.files.photoprofile.name
+
+    }
+
+    models.user.update(data).then((results)=>{
+        console.log(results)
+        console.log('Sukses Update')
+        res.redirect('/')
+    }).catch((err)=>{
+        console.log(err.message)
+        res.render('Error',{error:err,message:'Error Catching'})
+    })
+
 }
 
 

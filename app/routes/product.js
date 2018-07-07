@@ -10,6 +10,8 @@ module.exports = (app)=>{
     app.get('/product/detailproduct/:idproduct',isLoggedIn, productController.findOneDetailProduct);
     // app.post('/booking',productController)
     app.get('/booking/:idproduct',isLoggedIn,productController.beforeBooking);
+    app.post('/savebooking',productController.saveBooking)
+    app.get('/mybooking',isLoggedIn,productController.findAllBookings)
     function isLoggedIn(req, res, next) {
         if (req.isAuthenticated())
             return next();

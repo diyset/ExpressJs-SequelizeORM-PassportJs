@@ -7,11 +7,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
+            <% if(profile==null){%>
+            <a class="navbar-brand" href="/signin">
                 <span class="glyphicon glyphicon-user">
-                    <% if(profile==null){%>
                     Pariwisata
-                    <%}else{%>
+                </span>
+            </a>
+            <%}else{%>
+            <a class="navbar-brand" href="/detailprofile">
+                <span class="glyphicon glyphicon-user">
                     <%= profile.firstname%>
                     <%}%>
                 </span>
@@ -39,14 +43,14 @@
                     <a href="/signupv2">Sign Up</a>
                 </li>
                 <%}%>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
                 <% if(profile!= null) {%>
+                <li>
+                    <a href="/mybooking">My Bookings</a>
+                </li>
                 <li>
                     <a href="/logout">Logout</a>
                 </li>
-                <<%}%>
+                <%}%>
             </ul>
         </div>
     </div>

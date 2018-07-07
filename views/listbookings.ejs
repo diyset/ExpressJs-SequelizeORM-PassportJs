@@ -1,0 +1,57 @@
+<!-- views/pages/index.ejs -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <% include ./partials/header-layout.ejs %>
+</head>
+<body>
+        <!--Navigation -->
+        <% include partials/header-bookings.ejs %>
+        <!--END Navigation-->
+        <div class="container">
+                <h2>List My Bookings</h2>
+                <p>Dari Tanggal <%= formateDateUser%> Sampai Dengan <%= tanggalBaru%> </p>
+                <table class="table table-bordered table-danger">
+                        <tr>
+                                <th class="text-center">No</th>
+                                <th class="text-center">Nama Wisata</th>
+                                <th class="text-center">Harga</th>
+                                <th class="text-center">Tanggal Pesanan</th>
+                                <th class="text-center">Kode Booking</th>
+                        </tr>
+                        <% var i = 0;%>
+                <%bookings.forEach((booking)=>{%>
+                        <%i += booking.harga%>
+                <tbody>
+                <td class="success"><%= booking.nama_wisata%></td>
+                <td class="danger"><%= currencyFormatte.format(booking.harga,{precision:2,symbol:'IDR ',decimal:',',thousand:'.'})%></td>
+                <td class="info"><%= moment(booking.tgl_pemesanan).format('DD MMMM, YYYY')%></td>
+                <td class="info"><%= booking.kode_booking%></td>
+                <%})%>
+
+                </tbody>
+                </table>
+                <div class="container">
+                <h4>
+                   Total :     <%= currencyFormatte.format(i,{precision:2,symbol:'IDR ',decimal:',',thousand:'.'})%>
+                </h4>
+                </div>
+        </div>
+
+
+                <footer class="footer-distributed">
+    <% include ./partials/footer.ejs%>
+                        <script>
+                            var tables = document.getElementsByTagName('table');
+                            var table = tables[tables.length - 1];
+                            var rows = table.rows;
+                            for(var i = 1, td; i < rows.length; i++){
+                                td = document.createElement('td');
+                                td.appendChild(document.createTextNode(i + 0));
+                                rows[i].insertBefore(td, rows[i].firstChild);
+                            }
+                        </script>
+</footer>
+</body>
+<!--<script src='/stylesheets/bootstrap/bootstrap/js/custom.js'></script>-->
+</html>

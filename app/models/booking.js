@@ -1,7 +1,7 @@
 'use strict'
 module.exports = function(sequelize, Sequelize){
     var Booking = sequelize.define('tbl_booking',{
-        kode_booking: {autoIncrement:true, primaryKey:true, type:Sequelize.INTEGER},
+        kode_booking: {primaryKey:true, type:Sequelize.STRING(5)},
         id_product: {type: Sequelize.STRING(50),notEmpty:true},
         id_user: {type: Sequelize.STRING(50),notEmpty:true},
         tgl_pemesanan: {type: Sequelize.DATE},

@@ -30,7 +30,9 @@ module.exports = (passport,user)=>{
     },
 
     (req,email,password,done)=>{
-
+        let createDateAsUTC = (date)=>{
+            return new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds()));
+        }
         let generateCrypt = (password)=>{
             return bCrypt.hashSync(password,bCrypt.genSaltSync(4),null);
         }
@@ -45,11 +47,13 @@ module.exports = (passport,user)=>{
                 let purePassword = req.body.password;
                 let data = {
                     email:email,
+                    img_profile:'anonymous.jpg',
                     password: userPassword,
                     firstname: req.body.firstname,
                     lastname: req.body.lastname,
                     username: req.body.username,
-                    nohp: req.body.nohp
+                    nohp: req.body.nohp,
+                    last_login: createDateAsUTC(new Date())
                 }
         let confirmPassword = req.body.confirmpassword;
 

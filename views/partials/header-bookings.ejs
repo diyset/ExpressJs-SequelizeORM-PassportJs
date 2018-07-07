@@ -34,7 +34,7 @@
                     <a href="/signin">Login</a>
                 </li>
                 <%}else{%>
-                <li class="active">
+                <li>
                     <a href="/detailprofile">Welcome, <%=profile.firstname%></a>
                 </li>
                 <%}%>
@@ -44,7 +44,7 @@
                 </li>
                 <%}%>
                 <% if(profile!= null) {%>
-                <li>
+                <li class="active">
                     <a href="/mybooking">My Bookings</a>
                 </li>
                 <li>
