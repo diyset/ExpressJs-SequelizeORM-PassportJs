@@ -53,6 +53,7 @@ module.exports = (passport,user)=>{
                     lastname: req.body.lastname,
                     username: req.body.username,
                     nohp: req.body.nohp,
+                    role: 'user',
                     last_login: createDateAsUTC(new Date())
                 }
         let confirmPassword = req.body.confirmpassword;
@@ -75,7 +76,6 @@ module.exports = (passport,user)=>{
     }
 ))
 
-
 passport.use('local-signin', new LocalStrategy(
     {
         usernameField: 'email',
@@ -92,12 +92,8 @@ passport.use('local-signin', new LocalStrategy(
         let isValidPassword = (userpass, password)=>{
             return bCrypt.compareSync(password, userpass)
         }
-
-
-
         User.findOne({ where:{ [Op.or]: [{ email: email } , { username: email }]}}).then((user)=>{
         // User.findOne({where: { email: email}}).then((user)=>{
-
             if(!user){
                 return done(null, false, req.flash('message','Username or Password is not valid'))
             }
@@ -105,9 +101,13 @@ passport.use('local-signin', new LocalStrategy(
             if(!isValidPassword(user.password, password)){
                 return done(null, false, req.flash('message','Username or Password is not valid'))
             }
+
             let data = {
                 last_login: createDateAsUTC(date)
             }
+            console.log(data.last_login)
+            console.log(user.id)
+            console.log(user.firstname)
             user.update(data).then((newUser,created)=>{
                 console.log('newUser',newUser)
             })

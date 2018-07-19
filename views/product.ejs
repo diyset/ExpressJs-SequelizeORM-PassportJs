@@ -9,6 +9,9 @@
 
         <div class="container">
                 <div class="row">
+                        <% if(listProduct.length==0||listProduct.length<0) {%>
+                        <h1 class="text-center">Sedang Maintanance Hubungin Administrator</h1>
+                        <%}%>
                         <% listProduct.forEach((products)=>{%>
                         <div class="col-sm-4">
                                 <div class="panel panel-primary">

@@ -51,6 +51,20 @@ app.get('/about',(req,res)=>{
     })
 })
 
+app.get('/testsession',(req,res)=>{
+    if(req.session.page_views){
+        req.session.page_views++;
+        res.send("Jumlah Kunjungan "+req.session.page_views+" kali")
+    } else {
+        req.session.page_views = 1;
+        res.send("Selamat datang di website kami anda baru pertama kali mengunjungi website kami")
+    }
+})
+
+app.get('/testmap',(req,res)=>{
+    res.render('testmap')
+})
+
 // app.get('/product',(req,res)=>{
 //     res.render('productMenu',{title:'TITLEEE'})
 // })
@@ -65,6 +79,7 @@ let authRoute = require('./app/routes/auth')(app,passport);
 let detailProfileRoute = require('./app/routes/detailprofile')(app);
 let productRoute = require('./app/routes/product')(app);
 let apiRoute = require('./app/routes/ApiRoutes')(app);
+let adminRoute = require('./app/routes/AdminRoutes')(app,passport)
 
 
 require('./app/config/passport.js')(passport, models.user);

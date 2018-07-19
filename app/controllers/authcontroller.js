@@ -24,11 +24,13 @@ exports.menu = function(req,res){
       {namawisata:'Wisata wisata_kuliner',url:'/wisata_kuliner/TheHouseRaminten/the_house_raminten1.jpg',href:3}
   ];
   console.log('Menu : ',profile)
+    console.log('Cart : ',req.session.chart)
   res.render('index',{
     'profile': profile,
       'title':'Menu Page',
       'product':'/product',
-      coverCarousel:coverCarousel
+      coverCarousel:coverCarousel,
+      cart: req.session.chart
   });
 }
 
@@ -42,7 +44,7 @@ exports.login = (req,res)=>{
 
 exports.signupv2 = (req,res)=>{
   let profile= req.user;
-  res.render('signup',{'profile':profile,'title':'Signup Page','message':req.flash('message')[0],'active':'active'})
+  res.render('signup',{'profile':profile,'title':'Signup Page','message':req.flash('message')[0],'active':'active',cart:req.session.chart})
 }
 
 exports.logout = function(req,res){

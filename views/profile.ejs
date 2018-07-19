@@ -7,13 +7,12 @@
 <body>
         <!--Navigation -->
         <% include partials/header-profile.ejs %>
+
         <!--END Navigation-->
         <div class="container">
             <div class="row">
-
-
+                    <form enctype="multipart/form-data" action="/updatefotoprofile" method="post">
                 <div class="col-md-7 ">
-
                     <div class="panel panel-default">
                         <div class="panel-heading">  <h4 >Profile Pengguna</h4></div>
                         <div class="panel-body">
@@ -32,7 +31,6 @@
                                     <div class="clearfix"></div>
                                     <hr style="margin:5px 0 5px 0;">
 
-                                    <form enctype="multipart/form-data" action="/updatefotoprofile" method="post">
 
                                     <div class="col-sm-5 col-xs-6 tital " >Nama Depan:</div><div class="col-sm-7 col-xs-6 "><%= profile.firstname%></div>
                                     <div class="clearfix"></div>
@@ -68,7 +66,7 @@
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>
 
-                                    <div class="col-sm-5 col-xs-8 tital " >Last Login:</div><div class="col-sm-7"><%= moment(profile.last_login).format('DD-MM-YYYY HH:MM:SS')%></div>
+                                    <div class="col-sm-5 col-xs-8 tital " >Last Login:</div><div class="col-sm-7"><%= moment(profile.last_login,"id").utc().format("DD-MM-YYYY hh:mm:ss") %></div>
 
                                     <div class="clearfix"></div>
                                     <div class="bot-border"></div>
@@ -76,17 +74,19 @@
                                     <div class="col-sm-5 col-xs-8 tital">Ganti Foto Profile</div>
 
                                         <div class="col-sm-7"><input type="file" name="photoProfile" class="-upload"></div>
+
+                                        <div class="col-sm-5 col-xs-8 tital">Reset Foto</div>
+                                        <div class="col-sm-7"><a class="btn-info btn-sm" href="/resetfotoprofile">Reset Foto</a></div>
                                         <!-- /.box-body -->
                                 </div>
-                                <!-- /.box -->
-
+                                    <!-- /.box -->
                             </div>
-
                         </div>
                     </div>
-                    <div class="col-md-8">
-                        <input type="submit" class="btn btn-danger" value="Simpan"/>
-                        </form>
+                    <div class="col-md-12">
+                                    <input type="submit" class="btn btn-danger pull-right" value="Simpan"/>
+                                    </form>
+
                     </div>
                 </div>
             </div>

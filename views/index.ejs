@@ -3,13 +3,14 @@
 <html lang="en">
 <head>
     <% include ./partials/header-layout.ejs %>
+
+</head>
+<body>
     <style>
-        #map {
+        #mapgua {
             height: 100%;
         }
     </style>
-</head>
-<body>
 
         <!--Navigation -->
         <% include partials/header-index.ejs %>
@@ -64,8 +65,9 @@
 <div class="container text-center">
     <h1>About Us</h1>
     <div class="row">
+    <div id="mapgua"></div>
         <div class="col-sm-4">
-            <div id="map"></div>
+
             <h3>Lokasi Kami</h3>
         </div>
     </div>
@@ -73,16 +75,20 @@
 <footer class="footer-distributed">
     <% include ./partials/footer.ejs%>
 </footer>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
         <script>
             var map;
-            function initPeta() {
-                map = new google.maps.Map(document.getElementById('map'), {
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('mapgua'), {
                     center: {lat: -34.397, lng: 150.644},
                     zoom: 8
                 });
             }
         </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9GIy2pYELiXgaZlR9pBvZlLbD2CdlDOA&callback=initPeta" async defer></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9GIy2pYELiXgaZlR9pBvZlLbD2CdlDOA&callback=initMap"
+                async defer></script>
+
 </body>
 <!--<script src='/stylesheets/bootstrap/bootstrap/js/custom.js'></script>-->
 </html>

@@ -10,6 +10,7 @@ module.exports = function(sequelize, Sequelize){
         password: {type: Sequelize.STRING, allowNull: false},
         img_profile: {type: Sequelize.STRING, allowNull: true},
         last_login: {type: Sequelize.DATE},
+        role:{type: Sequelize.STRING, allowNull:false},
         status: {type: Sequelize.ENUM('active','inactive'),defaultValue: 'active'}
 
     })

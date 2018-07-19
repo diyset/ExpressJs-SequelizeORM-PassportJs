@@ -8,7 +8,7 @@
 
 <div style="margin:5% 40% 0% 33%;float:left; width:500px; box-shadow:0 0 3px #aaa; height:auto;color:#666;">
     <div style="width:100%; padding:10px; float:left; background:#1ca8dd; color:#fff; font-size:30px; text-align:center;">
-        Invoice#<span id="kodeBooking"><%= generateKodeBooking%></span>
+        Detail Pembelian<span id="kodeBooking"></span>
     </div>
     <div style="width:100%; padding:0px 0px;border-bottom:1px solid rgba(0,0,0,0.2);float:left;">
         <div style="width:30%; float:left;padding:10px;">
@@ -32,11 +32,11 @@
 
         <div style="width:40%; float:right;">
             <span style="font-size:14px;float:right;  padding:10px; text-align:right;">
-                <b>Date : </b><%= tanggalOrder%>
+                <b>Tanggal : <%= formateDateUser%></b>
             </span>
-            <span style="font-size:14px;float:right;  padding:10px; text-align:right;">
-               <b>Kode Booking# : </b><%= generateKodeBooking%>
-            </span>
+            <!--<span style="font-size:14px;float:right;  padding:10px; text-align:right;">-->
+               <!--&lt;!&ndash;<b>Kode Booking# : </b>&ndash;&gt;-->
+            <!--</span>-->
         </div>
     </div>
 
@@ -54,28 +54,44 @@
          Amount
         </span>
         </div>
-
+        <% var totalHarga = 0;%>
+        <%if(cart==null||cart.length<0||cart.length==0){%>
+        <div style="width: 100%;float:left;">
+            <h1 class="text-center">Cart Anda Kosong!</h1>
+            <div class="col-lg-12">
+            <a class="btn btn-danger center-block" href="/" style="width: 50%;">Back to Home</a>
+            </div>
+        </div>
+        <%} else {%>
+        <% var i = 0;%>
+        <% cart.forEach((carts)=>{%>
+        <% totalHarga += carts.harga; i++;%>
         <div style="width:100%;float:left;">
             <span style="float:left; text-align:left;padding:10px;width:50%;color:#888;">
-            <%= product.nama_wisata%>
+            <%= carts.nama_wisata%>
 
 
             <span style="font-size:10px; float:left; width:100%;">
-                (<%= product.lokasi%>)
+                (<%= carts.lokasi%>)
             </span>
         </span>
             <span style="font-weight:normal;float:left;padding:10px ;width:40%;color:#888;text-align:right;">
-            <%= formatCurrency%>
+            <%= currencyFormatte.format(carts.harga,{precision:2,symbol:'IDR ',decimal:',',thousand:'.'})%>
+                <a href="/removeCart/<%= i-1%>">
+                    <span class="glyphicon glyphicon-remove glyphicon-remove-dian"></span>
+                </a>
         </span>
+
+
         </div>
     </div>
 
         <div style="width:100%;float:left; background:#fff;">
 
+<%})%>
          <span style="font-weight:600;float:right;padding:10px 0px;width:40%;color:#666;text-align:center;">
-           Total : <%= formatCurrency%>
+           Total : <%= currencyFormatte.format(totalHarga,{precision:2,symbol:'IDR ',decimal:',',thousand:'.'})%>
         </span>
-
         <div class="container-fluid bg-3">
             <div class="row">
                 <div class="col-md-12">
@@ -88,6 +104,7 @@
         </form>
                 </div>
             </div>
+            <%}%>
         </div>
     </div>
 

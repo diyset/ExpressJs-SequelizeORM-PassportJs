@@ -32,10 +32,10 @@ db.kategori = require('../models/kategori')(sequelize,Sequelize)
 db.user = require('../models/user')(sequelize,Sequelize)
 db.booking = require('../models/booking')(sequelize,Sequelize)
 
-db.booking.belongsTo(db.user)
+// db.booking.belongsTo(db.user)
 // db.booking.hasMany(db.user)
-db.booking.belongsTo(db.product)
+// db.booking.belongsTo(db.product)
 // db.kategori.belongsTo(db.product,{through:'productProject'})
-db.kategori.hasMany(db.product)
+// db.kategori.hasMany(db.product)
 
     module.exports = db;

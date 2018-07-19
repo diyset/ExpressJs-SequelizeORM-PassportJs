@@ -20,6 +20,9 @@
                     <%}%>
                 </span>
             </a>
+            <a class="navbar-brand" href="/bookings">
+                 <span class="glyphicon glyphicon-shopping-cart"><%= cart!=null?cart.length:0%></span>
+            </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav navbar-right">
@@ -47,6 +50,11 @@
                 <li>
                     <a href="/mybooking">My Bookings</a>
                 </li>
+                <%if(profile.role=='superadmin'){%>
+                <li>
+                    <a href="/admin">Control Admin</a>
+                </li>
+                <%}%>
                 <li>
                     <a href="/logout">Logout</a>
                 </li>

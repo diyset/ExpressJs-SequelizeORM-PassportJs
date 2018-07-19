@@ -15,10 +15,13 @@
             </a>
             <%}else{%>
             <a class="navbar-brand" href="/detailprofile">
-                <span class="glyphicon glyphicon-user">
+                <span class="glyphicon glyphicon-user" href="/bookings">
                     <%= profile.firstname%>
                     <%}%>
                 </span>
+            </a>
+            <a class="navbar-brand">
+                <span class="glyphicon glyphicon-shopping-cart"><%= cart!=null?cart.length:0%></span>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar">
@@ -47,6 +50,11 @@
                 <li>
                     <a href="/mybooking">My Bookings</a>
                 </li>
+                <%if(profile.role=='superadmin'){%>
+                <li>
+                    <a href="/admin">Control Admin</a>
+                </li>
+                <%}%>
                 <li>
                     <a href="/logout">Logout</a>
                 </li>
