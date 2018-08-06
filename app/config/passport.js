@@ -105,9 +105,7 @@ passport.use('local-signin', new LocalStrategy(
             let data = {
                 last_login: createDateAsUTC(date)
             }
-            console.log(data.last_login)
-            console.log(user.id)
-            console.log(user.firstname)
+
             user.update(data).then((newUser,created)=>{
                 console.log('newUser',newUser)
             })

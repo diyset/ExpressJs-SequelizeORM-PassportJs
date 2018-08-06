@@ -51,7 +51,7 @@ exports.updateprofile = (req,res)=> {
     models.user.update({img_profile:'anonymous.jpg'},{returning:true,where: {id:profile.id}}).then((results)=>{
 
         console.log(results)
-        console.log('Sukses Update')
+        ('Sukses Update')
         res.redirect('/')
     }).catch((err) => {
         console.log(err.message)
@@ -64,9 +64,6 @@ exports.updateprofile = (req,res)=> {
     }
     let profile = req.user;
     models.user.update({img_profile:'anonymous.jpg'},{returning:true,where: {id:profile.id}}).then((results)=>{
-
-            console.log(results)
-            console.log('Sukses Update')
             res.redirect('/')
         }).catch((err)=>{
             console.log(err.message)

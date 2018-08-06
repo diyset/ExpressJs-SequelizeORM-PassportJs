@@ -7,14 +7,25 @@
     </style>
 </head>
 <body>
+
     <% include ./partials/header-product.ejs%>
 
     <div class="container">
 
-        <h1 class="my-4">
-            <%= product.nama_wisata%>
-            <a class="btn-info" href="/booking/<%= product.id_product%>">Pesan</a>
-        </h1>
+        <div class="jumbotron" style="background-color: #23cdf269">
+            <h1 class="text-center" style="font-style: italic; font-family: Georgia;"><%= product.nama_wisata%></h1>
+        </div>
+            <form method="POST" action="/addToChart" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="tanggal_booking">Tanggal Pesan</label>
+                    <input type="hidden" name="idProduct" value="<%= product.id_product%>"/>
+                    <input id="tanggal_booking" type="datetime-local" class="form-control" style="width: 220px;" name="tanggal_booking" min="<%= dateMinFormat%>" max="2050-12-12" value="<%= date%>"/>
+                    <p style="font-size: 11px; color:red;"><%= message%></p>
+
+                <input type="submit" value="Pesan" class="btn-info"/>
+                </div>
+            </form>
+
 
         <div class="row">
             <div class="col-md-8">
@@ -27,7 +38,7 @@
                 <!--<p align="justify">Taman Pintar Yogyakarta merupakan salah satu wahana bermain sekaligus belajar untuk anak-anak yang disediakan oleh pemerintah kota Yogyakarta untuk menyediakan sarana pembelajaran sains bagi siswa yang mendukung kurikulum pendidikan-->
                     <!--serta memotivasi anak dan generasi muda untuk mencintai sains</p>-->
                 <h3 class="my-3"> Harga : <%= formatCurrency%></h3>
-                <h3 class="my-3">Lokasi : <%= product.lokasi%></h3>
+                <h3 class="my-3"> Lokasi : <%= product.lokasi%></h3>
 
                 </div>
             </div>
@@ -36,6 +47,7 @@
         </div>
         <h1 class="my-4">Deskripsi</h1>
         <p align="justify"><%= product.deskripsi%></p>
+        <% if(product.url_images1!=null && !product.url_images1==""){%>
         <h1>Gallery <%= product.nama_wisata%></h1>
         <div class="row">
             <div class="col-sm-3">
@@ -54,11 +66,27 @@
                 </a>
             </div>
         </div>
-        <h1 class="my-4">Lokasi Di Map</h1>
+        <%}%>
+
     </div>
+
+<div id="mapgua"></div>
+    <script>
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('mapgua'), {
+                center: {lat: -34.397, lng: 150.644},
+                zoom: 8
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9GIy2pYELiXgaZlR9pBvZlLbD2CdlDOA&callback=initMap"
+            async defer></script>
 <footer class="footer-distributed">
         <% include ./partials/footer.ejs%>
 </footer>
+
+
 </body>
 
 </html>

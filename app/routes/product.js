@@ -8,7 +8,8 @@ module.exports = (app)=>{
     app.get('/product',productController.productAll);
     app.get('/product/:kategori',productController.findOneProduct);
     // app.get('/product/detailproduct/:idproduct',isLoggedIn, productController.findOneDetailProduct);
-    app.get('/booking/:idproduct', productController.addToChart);
+    app.post('/addToChart', productController.addToChart);
+
     // app.post('/booking',productController)
     app.get('/bookings',isLoggedIn,productController.beforeBooking);
     app.post('/savebooking',productController.saveBooking)

@@ -20,7 +20,7 @@ exports.findAllProduct = (req,res)=>{
 exports.findProductByKategori = (req,res)=>{
     let idKategori = req.params.idKategori;
     models.sequelize.query(
-        "SELECT * FROM tbl_products JOIN tbl_kategoris  ON tbl_products.tblKategoriIdKategori = tbl_kategoris.id_kategori " +
+        "SELECT * FROM tbl_products JOIN tbl_kategoris  ON tbl_products.id_kategori = tbl_kategoris.id_kategori " +
         "where tbl_kategoris.id_kategori = ? ",{
             replacements: [idKategori],
             model: models.tbl_product,

@@ -74,8 +74,11 @@
             <span style="font-size:10px; float:left; width:100%;">
                 (<%= carts.lokasi%>)
             </span>
+                 <span style="font-size:10px; float:left; width:100%;">
+                Tanggal Booking : <%=  moment(carts.tglJemput).format('DD MMMM, YYYY h:mm')%>
+            </span>
         </span>
-            <span style="font-weight:normal;float:left;padding:10px ;width:40%;color:#888;text-align:right;">
+            <span style="font-weight:normal;float:right;padding:10px ;width:40%;color:#888;text-align:right;">
             <%= currencyFormatte.format(carts.harga,{precision:2,symbol:'IDR ',decimal:',',thousand:'.'})%>
                 <a href="/removeCart/<%= i-1%>">
                     <span class="glyphicon glyphicon-remove glyphicon-remove-dian"></span>
@@ -92,7 +95,8 @@
          <span style="font-weight:600;float:right;padding:10px 0px;width:40%;color:#666;text-align:center;">
            Total : <%= currencyFormatte.format(totalHarga,{precision:2,symbol:'IDR ',decimal:',',thousand:'.'})%>
         </span>
-        <div class="container-fluid bg-3">
+            <br>
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <h3 class="text-center">Anda yakin ingin memesan ?</h3>

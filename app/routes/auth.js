@@ -1,11 +1,10 @@
 var authController = require('../controllers/authcontroller.js');
-var productController= require('../controllers/productcontroller');
+
 
 module.exports = function(app,passport){
 
 app.get('/signup', authController.signup);
 
-app.get('/signin', authController.signin);
 
 
 app.post('/signup', passport.authenticate('local-signup',  { successRedirect: '/index',
@@ -19,6 +18,7 @@ app.get('/signupv2',authController.signupv2)
 
 app.get('/login',authController.login);
 
+app.get('/signin', authController.signin);
 app.post('/signin', function(req, res, next) {
         passport.authenticate('local-signin',
             function(err, user, info) {

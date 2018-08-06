@@ -79,7 +79,7 @@ let authRoute = require('./app/routes/auth')(app,passport);
 let detailProfileRoute = require('./app/routes/detailprofile')(app);
 let productRoute = require('./app/routes/product')(app);
 let apiRoute = require('./app/routes/ApiRoutes')(app);
-let adminRoute = require('./app/routes/AdminRoutes')(app,passport)
+let adminRoute = require('./app/routes/AdminRoutes')(app)
 
 
 require('./app/config/passport.js')(passport, models.user);

@@ -15,14 +15,17 @@
                 <h2>List My Bookings</h2>
                 <p>Dari Tanggal <%= formateDateUser%> Sampai Dengan <%= tanggalBaru%> </p>
                 <table class="table table-bordered table-danger">
+                        <thead>
                         <tr>
                                 <th class="text-center">No</th>
                                 <th class="text-center">Nama Wisata</th>
                                 <th class="text-center">Harga</th>
                                 <th class="text-center">Lokasi</th>
                                 <th class="text-center">Tanggal Pesanan</th>
+                                <th class="text-center">Tanggal Jemput</th>
                                 <th class="text-center">Kode Booking</th>
                         </tr>
+                        </thead>
                         <% var i = 0; var total_items = 0;%>
                         <%bookings.forEach((booking)=>{%>
                         <%i += booking.harga;%>
@@ -32,6 +35,7 @@
                         <td class="danger"><%= currencyFormatte.format(booking.harga,{precision:2,symbol:'IDR ',decimal:',',thousand:'.'})%></td>
                         <td class="danger"><%= booking.lokasi%></td>
                         <td class="info"><%= moment(booking.tgl_pemesanan).format('DD MMMM, YYYY')%></td>
+                        <td class="info"><%= moment(booking.tgl_jemput).format('DD MMMM, YYYY h:mm')%></td>
                         <td class="info"><%= booking.kode_booking%></td>
                         </tbody>
                         <%})%>

@@ -12,7 +12,6 @@ exports.findOneProduct=(req,res)=>{
         if(results==null){
             res.render('error')
         }
-        console.log(results)
         res.render('product',{product:results});
     });
 
