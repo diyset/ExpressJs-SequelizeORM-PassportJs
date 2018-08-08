@@ -49,8 +49,10 @@ exports.findOneDetailProduct=(req, res, next)=>{
     let idProduct = req.params.idproduct;
     let profile = req.user;
     let date = moment(new Date()).format('YYYY-MM-DDThh:mm');
-    let dateMin = moment(new Date()).format('YYYY-MM-DD');
+    let dateMin = moment(new Date()).add(2,'days').format('YYYY-MM-DD');
+    console.log(dateMin)
     let dateMinFormat = dateMin+"T00:00";
+    console.log(dateMinFormat)
     if(profile==null){
         res.render('error',{message:'Error pada Params'})
     }

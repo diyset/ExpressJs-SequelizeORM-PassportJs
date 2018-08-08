@@ -40,16 +40,16 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //START Controller
-app.get('/about',(req,res)=>{
-    let abouts = [
-        {name:'Dian Setiyadi',umur:22},
-        {name:'Dadang Sudarman',umur:26},
-        {name:'Rudi RUdiyanto',umur:20}
-    ]
-    res.render('/about',{
-        abouts:abouts
-    })
-})
+// app.get('/about',(req,res)=>{
+//     let abouts = [
+//         {name:'Dian Setiyadi',umur:22},
+//         {name:'Dadang Sudarman',umur:26},
+//         {name:'Rudi RUdiyanto',umur:20}
+//     ]
+//     res.render('/about',{
+//         abouts:abouts
+//     })
+// })
 
 app.get('/testsession',(req,res)=>{
     if(req.session.page_views){
@@ -61,9 +61,9 @@ app.get('/testsession',(req,res)=>{
     }
 })
 
-app.get('/testmap',(req,res)=>{
-    res.render('testmap')
-})
+// app.get('/testmap',(req,res)=>{
+//     res.render('testmap')
+// })
 
 // app.get('/product',(req,res)=>{
 //     res.render('productMenu',{title:'TITLEEE'})

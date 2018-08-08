@@ -19,7 +19,7 @@
         <div class="form-group">
             <label for="tanggal_booking">Tanggal Pesan</label>
                     <input type="hidden" name="idProduct" value="<%= product.id_product%>"/>
-                    <input id="tanggal_booking" type="datetime-local" class="form-control" style="width: 220px;" name="tanggal_booking" min="<%= dateMinFormat%>" max="2050-12-12" value="<%= date%>"/>
+                    <input id="tanggal_booking" type="datetime-local" class="form-control" style="width: 220px;" name="tanggal_booking" min="<%= dateMinFormat%>" max="2050-12-12" value="<%= dateMinFormat%>"/>
                     <p style="font-size: 11px; color:red;"><%= message%></p>
 
                 <input type="submit" value="Pesan" class="btn-info"/>
